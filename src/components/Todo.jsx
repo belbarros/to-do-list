@@ -1,11 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import AppContext from '../context/AppContext';
 
 export default function Todo() {
   const { toDoList, task, setTask, setToDoList, doneList, setDoneList } = useContext(AppContext);
-  const [checked, setChecked] = useState(false);
 
   const handleInputChange = ({ target }) => {
     setTask(target.value)
@@ -23,8 +20,8 @@ export default function Todo() {
   };
 
   return (
-    <div>
-      <div>
+    <div className='app-container'>
+      <div className='todo-list'>
       <h1>My To-Do List ✨</h1>
       <label htmlFor='task'>
         Tarefa:
@@ -42,7 +39,7 @@ export default function Todo() {
       onClick={ handleSubmit }>
         Adicionar
       </button>
-      <div>
+      <div className='done-list'>
       {
       toDoList.map((todo) => { return (
       <p key={ todo }>
