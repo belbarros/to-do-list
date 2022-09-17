@@ -10,8 +10,8 @@ export default function Todo() {
   };
 
   const handleSubmit = () => {
-    console.log('Clicou');
     setToDoList([task, ...toDoList]);
+    setTask('');
   };
 
   return (
@@ -22,6 +22,7 @@ export default function Todo() {
       <input
       type='text'
       name='task'
+      value={ task }
       onChange={ handleInputChange }
       >
       </input>
@@ -34,7 +35,15 @@ export default function Todo() {
       </button>
       <div>
       {
-      toDoList.map((todo) => { return <p key={ todo }>{ todo }</p>})
+      toDoList.map((todo) => { return (
+      <p key={ todo }>
+        <label>
+          <input type="checkbox" />
+          { todo }
+          </label>
+          </p>
+          )
+        })
       }
       </div>
     </div>
