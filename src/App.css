@@ -1,25 +1,29 @@
+html, body {
+  background: rgb(238,174,202);
+background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  background-size: 100%;
+}
+
 .App {
   text-align: center;
-  background-color: red;
 }
 
 .app-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  align-content: center;
   margin: auto;
   gap: 10px;
   justify-content: space-around;
 }
 
-.todo-list {
+.done-list, .todo-list {
   display: flex;
   flex-direction: column;
   background-color: azure;
-}
-
-.done-list {
-  display: flex;
-  flex-direction: column;
-  background-color: azure;
+  border-radius: 36px;
+  padding: 8px 40px;
+  width: 400px;
+  min-height: 400px;
 }

@@ -20,7 +20,7 @@ export default function Todo() {
   };
 
   return (
-    <div>
+    <div className='header'>
       <h1>My To-Do List ✨</h1>
       <div className='input'>
       <label htmlFor='task'>
