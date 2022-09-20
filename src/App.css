@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: red;
 }
 
 .app-container {
@@ -14,10 +15,11 @@
 .todo-list {
   display: flex;
   flex-direction: column;
-
+  background-color: azure;
 }
 
 .done-list {
   display: flex;
   flex-direction: column;
+  background-color: azure;
 }

@@ -20,9 +20,9 @@ export default function Todo() {
   };
 
   return (
-    <div className='app-container'>
-      <div className='todo-list'>
+    <div>
       <h1>My To-Do List ✨</h1>
+      <div className='input'>
       <label htmlFor='task'>
         Tarefa:
       <input
@@ -39,7 +39,11 @@ export default function Todo() {
       onClick={ handleSubmit }>
         Adicionar
       </button>
-      <div className='done-list'>
+      </div>
+    <div className='app-container'>
+      <div className='todo-list'>
+      <h1>To-Do</h1>
+      <div>
       {
       toDoList.map((todo) => { return (
       <p key={ todo }>
@@ -57,12 +61,24 @@ export default function Todo() {
       }
       </div>
       </div>
-      <div>
+      <div className='done-list'>
       <h1>Finished Tasks ✨</h1>
       {
-      doneList.map((done) => <p key={ done }>{ done }</p>)
+      doneList.map((done) => (
+      <p key={ done }>
+        <label>
+          <input
+          type="checkbox"
+          checked='true'
+          value={ done }
+          />
+        { done }
+        </label>
+        </p>
+      ))
       }
       </div>
+    </div>
     </div>
   )
 }
