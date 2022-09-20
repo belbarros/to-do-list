@@ -19,6 +19,16 @@ export default function Todo() {
       setToDoList(newList);
   };
 
+  const handleDeleteToDo = ({ target }) => {
+    const newList = toDoList.filter((todo) => todo !== target.value);
+    setToDoList(newList);
+  }
+
+  const handleDeleteDone = ({ target }) => {
+    const newList = doneList.filter((todo) => todo !== target.value);
+    setDoneList(newList);
+  }
+
   return (
     <div className='header'>
       <h1>My To-Do List ✨</h1>
@@ -46,6 +56,7 @@ export default function Todo() {
       <div>
       {
       toDoList.map((todo) => { return (
+      <div className='todo-task'>
       <p key={ todo }>
         <label>
           <input
@@ -56,18 +67,27 @@ export default function Todo() {
           { todo }
           </label>
           </p>
+          <button
+          value={ todo }
+          onClick={ handleDeleteToDo }
+          >
+            Delete
+          </button>
+          </div>
           )
         })
       }
       </div>
       </div>
       <div className='done-list'>
-      <h1>Finished Tasks ✨</h1>
+      <h1>Finished Tasks</h1>
       {
       doneList.map((done) => (
+      <div className='done-task'>
       <p key={ done }>
         <label>
           <input
+          className='check'
           type="checkbox"
           checked='true'
           value={ done }
@@ -75,6 +95,13 @@ export default function Todo() {
         { done }
         </label>
         </p>
+        <button
+          value={ done }
+          onClick={ handleDeleteDone }
+          >
+            Delete
+          </button>
+        </div>
       ))
       }
       </div>

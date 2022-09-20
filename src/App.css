@@ -27,3 +27,27 @@ background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 1
   width: 400px;
   min-height: 400px;
 }
+
+.todo-task, .done-task {
+  background-color: red;
+  border-radius: 34px;
+  padding: 8px 12px;
+  min-width: 200px;
+  margin: 16px;
+}
+
+.app-container label {
+  font-size: 18px;
+}
+
+.check {
+  padding: 20px;
+}
+
+.todo-task {
+  background-color: rgba(238,174,202,1);
+}
+
+.done-task {
+  background-color: rgba(148,187,233,1);
+}
