@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import AppContext from '../context/AppContext';
 
 export default function Todo() {
   const { toDoList, task, setTask, setToDoList, doneList, setDoneList } = useContext(AppContext);
 
   const handleInputChange = ({ target }) => {
-    setTask(target.value)
+    setTask(target.value);
   };
 
   const handleSubmit = () => {
@@ -30,6 +30,7 @@ export default function Todo() {
   }
 
   return (
+    <div>
     <div className='header'>
       <h1>My To-Do List ✨</h1>
       <div className='input'>
@@ -40,6 +41,7 @@ export default function Todo() {
       name='task'
       value={ task }
       onChange={ handleInputChange }
+      autoFocus
       >
       </input>
       </label>
@@ -49,6 +51,7 @@ export default function Todo() {
       onClick={ handleSubmit }>
         Adicionar
       </button>
+      </div>
       </div>
     <div className='app-container'>
       <div className='todo-list'>
@@ -66,13 +69,13 @@ export default function Todo() {
           />
           { todo }
           </label>
-          </p>
           <button
+          className='delete-button'
           value={ todo }
           onClick={ handleDeleteToDo }
-          >
-            Delete
+          > X
           </button>
+          </p>
           </div>
           )
         })
@@ -94,13 +97,14 @@ export default function Todo() {
           />
         { done }
         </label>
-        </p>
         <button
+         className='delete-button'
           value={ done }
           onClick={ handleDeleteDone }
           >
-            Delete
+            X
           </button>
+        </p>
         </div>
       ))
       }
