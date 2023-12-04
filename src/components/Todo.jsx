@@ -24,6 +24,14 @@ export default function Todo() {
     setToDoList(newList);
   }
 
+  const handleReturn = ({ target }) => {
+    const newTodoList = toDoList.concat(target.value);
+    const newDoneList = doneList.filter((todo) => todo !== target.value);
+    setToDoList(newTodoList);
+    setDoneList(newDoneList);
+  };
+
+
   const handleDeleteDone = ({ target }) => {
     const newList = doneList.filter((todo) => todo !== target.value);
     setDoneList(newList);
@@ -61,14 +69,11 @@ export default function Todo() {
       toDoList.map((todo) => { return (
       <div className='todo-task'>
       <p key={ todo }>
-        <label>
-          <input
-          type="checkbox"
+          <button
           value={ todo }
-          onChange={ handleCheckChange }
-          />
+          onClick={ handleCheckChange }>
           { todo }
-          </label>
+          </button>
           <button
           className='delete-button'
           value={ todo }
@@ -88,15 +93,12 @@ export default function Todo() {
       doneList.map((done) => (
       <div className='done-task'>
       <p key={ done }>
-        <label>
-          <input
-          className='check'
-          type="checkbox"
-          checked='true'
-          value={ done }
-          />
+        <button
+        value = { done }
+        onClick={ handleReturn }
+        >
         { done }
-        </label>
+        </button>
         <button
          className='delete-button'
           value={ done }
